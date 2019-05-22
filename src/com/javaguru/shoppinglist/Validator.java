@@ -16,7 +16,7 @@ public class Validator {
         return result;
     }
     public Boolean ValidateDiscount(BigDecimal userString){
-        result= userString.compareTo(BigDecimal.valueOf(80)) >= 0;
+        result= userString.compareTo(BigDecimal.valueOf(80)) < 0;
         return result;
     }
 }

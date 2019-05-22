@@ -11,7 +11,7 @@ class ShoppingListApplication {
 
     public static void main(String[] args) {
         Map<Long, Product> productRepository = new HashMap<>();
-        Long productIdSequence = 0L;
+        Long productIdSequence = 1L;
         while (true) {
             Scanner scanner = new Scanner(System.in);
             try {
@@ -39,14 +39,24 @@ class ShoppingListApplication {
 
                         do {
                             System.out.println("Enter product discount: ");
-                            discount=scanner.nextBigDecimal();
+                            discount=new BigDecimal(scanner.nextLine());
                             validation=NewValidator.ValidateDiscount(discount);
                         }while (validation==false);
+
+                            System.out.println("Enter product category: ");
+                        for (ProductTypes pt: ProductTypes.values()) {
+                            System.out.println(pt.ordinal()+". "+pt.toString());
+                        }
+                        userInput = Integer.valueOf(scanner.nextLine());
+                        ProductTypes one = ProductTypes.getProductById(userInput);
+
 
                         Product product = new Product();
                         product.setName(name);
                         product.setPrice(price);
+                        product.setDiscount(discount);
                         product.setId(productIdSequence);
+                        product.setType(one);
                         productRepository.put(productIdSequence, product);
                         productIdSequence++;
                         System.out.println("Result: " + product.getId());
