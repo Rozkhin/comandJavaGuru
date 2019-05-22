@@ -7,6 +7,15 @@ public class Product {
     private Long id;
     private String name;
     private BigDecimal price;
+    private BigDecimal discount;
+
+    public BigDecimal getDiscount() {
+        return discount;
+    }
+
+    public void setDiscount(BigDecimal discount) {
+        this.discount = discount;
+    }
 
     public Long getId() {
         return id;
