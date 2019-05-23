@@ -19,4 +19,13 @@ public class Validator {
         result= userString.compareTo(BigDecimal.valueOf(80)) < 0;
         return result;
     }
+
+    public String ValidatePT(int userData){
+        String resultstring="ok";
+        if(userData > ProductTypes.getProductTypesCount()-1){
+            System.out.println(ProductTypes.getProductTypesCount()-1);
+            resultstring="no such product category";
+        }
+        return resultstring;
+    }
 }

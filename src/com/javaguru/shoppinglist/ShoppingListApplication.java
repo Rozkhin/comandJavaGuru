@@ -44,9 +44,10 @@ class ShoppingListApplication {
                             System.out.println("Enter product name: ");
                             name = scanner.nextLine();
                             validation=NewValidator.ValidateName(name);
-                            //System.out.println(validation);
+                            if(!validation){
+                                System.out.println("name is to short");
+                            }
                         }while (!validation);
-
 
                             System.out.println("Enter product price: ");
                             price = new BigDecimal(scanner.nextLine());
@@ -55,13 +56,20 @@ class ShoppingListApplication {
                             System.out.println("Enter product discount: ");
                             discount=new BigDecimal(scanner.nextLine());
                             validation=NewValidator.ValidateDiscount(discount);
+                            if(!validation){
+                                System.out.println("Max discount 80% ");
+                            }
                         }while (!validation);
-
+                        String result;
+                        do {
                             System.out.println("Enter product category: ");
-                        for (ProductTypes pt: ProductTypes.values()) {
-                            System.out.println(pt.ordinal()+". "+pt.toString());
-                        }
-                        userInput = Integer.valueOf(scanner.nextLine());
+                                for (ProductTypes pt: ProductTypes.values()) {
+                                    System.out.println(pt.ordinal()+". "+pt.toString());
+                                }
+                            userInput = Integer.valueOf(scanner.nextLine());
+                            result = NewValidator.ValidatePT(userInput);
+                            System.out.println(result);
+                        }while (result.equals("no such product category"));
                         ProductTypes one = ProductTypes.getProductById(userInput);
 
                         System.out.println("Enter product description (Optional): ");
