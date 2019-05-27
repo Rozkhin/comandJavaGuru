@@ -45,7 +45,7 @@ class ShoppingListApplication {
                             name = scanner.nextLine();
                             validation=NewValidator.ValidateName(name);
                             if(!validation){
-                                System.out.println("name is to short");
+                                System.out.println("Name is to short");
                             }
                         }while (!validation);
 
