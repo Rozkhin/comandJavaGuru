@@ -1,7 +1,11 @@
-package com.javaguru.shoppinglist;
+package com.javaguru.shoppinglist.Database;
 
+
+import com.javaguru.shoppinglist.Database.ProductTypes;
 
 import java.math.BigDecimal;
+
+
 
 public class Product {
 
@@ -48,4 +52,6 @@ public class Product {
     public void setType(ProductTypes type) { this.type = type; }
 
     public ProductTypes getType() { return type; }
+
+
 }
