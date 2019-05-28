@@ -1,4 +1,4 @@
-package com.javaguru.shoppinglist;
+package com.javaguru.shoppinglist.Database.product;
 
 public enum ProductTypes {
     FRUITS,

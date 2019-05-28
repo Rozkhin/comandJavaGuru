@@ -1,9 +1,11 @@
-package com.javaguru.shoppinglist;
+package com.javaguru.shoppinglist.Database.product;
 
 
 import java.math.BigDecimal;
 
+
 public class Product {
+
 
     private Long id;
     private String name;
