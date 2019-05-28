@@ -4,8 +4,8 @@ import com.javaguru.shoppinglist.Database.product.Collection;
 import com.javaguru.shoppinglist.Database.product.Product;
 
 public class ProductService {
-    private Collection repository = new Collection();
-    private ProductValidationService validationService = new ProductValidationService();
+    Collection repository = new Collection();
+    private ProductValidationService validationService = new ProductValidationService(repository);
 
     public Long createProduct(Product product){
         boolean result =validationService.validate(product);

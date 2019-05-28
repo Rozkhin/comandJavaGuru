@@ -1,5 +1,6 @@
 package com.javaguru.shoppinglist.Service;
 
+import com.javaguru.shoppinglist.Database.product.Collection;
 import com.javaguru.shoppinglist.Database.product.Product;
 
 import java.util.HashSet;
@@ -8,9 +9,9 @@ import java.util.Set;
 public class ProductValidationService {
     private Set<ProductNameValidationRule> validationRules = new HashSet<>();
 
-    public ProductValidationService(){
-        validationRules.add(new ProductValidationRules.ProductNameValidationRule());
-        validationRules.add(new ProductValidationRules.ProductDiscountValidationRule());
+    public ProductValidationService(Collection repository){
+        validationRules.add(new ProductNameValidationRule(repository));
+        validationRules.add(new ProductDiscountValidationRule());
     }
 
     public Boolean validate(Product product){
