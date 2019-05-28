@@ -9,7 +9,8 @@ public class ProductValidationService {
     private Set<ProductNameValidationRule> validationRules = new HashSet<>();
 
     public ProductValidationService(){
-        validationRules.add(new ProductNameValidationRule());
+        validationRules.add(new ProductValidationRules.ProductNameValidationRule());
+        validationRules.add(new ProductValidationRules.ProductDiscountValidationRule());
     }
 
     public Boolean validate(Product product){
