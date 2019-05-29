@@ -32,8 +32,13 @@ public class Product {
     public void setDescription(String description) {this.description = description;}
 
     public void setDiscount(BigDecimal discount) {
-        this.discount = discount;
-        this.actualPrice = price.subtract(price.multiply(discount.divide(BigDecimal.valueOf(100.00),2, BigDecimal.ROUND_HALF_UP))).setScale(2, BigDecimal.ROUND_HALF_UP);
+        if (this.price.compareTo(BigDecimal.valueOf(20.00)) >= 0) {
+            this.discount = discount;
+            this.actualPrice = price.subtract(price.multiply(discount.divide(BigDecimal.valueOf(100.00), 2, BigDecimal.ROUND_HALF_UP))).setScale(2, BigDecimal.ROUND_HALF_UP);
+        } else {
+            this.discount = new BigDecimal(0.00);
+            this.actualPrice = this.price;
+        }
     }
 
     public BigDecimal getDiscount() { return discount; }
